@@ -62,5 +62,27 @@ echo "  Hyprpaper restarted"
 echo "  Extracting colors..."
 wallust run "$WALLPAPER"
 
+# Update SDDM theme
+SDDM_THEME_DIR="/usr/share/sddm/themes/minimal"
+DOTFILES_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+if [[ -d "$SDDM_THEME_DIR" ]]; then
+    echo "  Updating SDDM theme..."
+    sudo cp "$WALLPAPER" "$SDDM_THEME_DIR/wallpaper.jpeg"
+    [[ -f "$HOME/.config/sddm/colors.conf" ]] && sudo cp "$HOME/.config/sddm/colors.conf" "$SDDM_THEME_DIR/"
+    echo "  SDDM theme updated"
+elif [[ -d "$DOTFILES_DIR/sddm" ]]; then
+    echo "  Installing SDDM theme..."
+    sudo mkdir -p "$SDDM_THEME_DIR"
+    sudo cp "$DOTFILES_DIR/sddm/"*.qml "$SDDM_THEME_DIR/"
+    sudo cp "$DOTFILES_DIR/sddm/"*.conf "$SDDM_THEME_DIR/"
+    sudo cp "$DOTFILES_DIR/sddm/"*.desktop "$SDDM_THEME_DIR/"
+    sudo cp "$WALLPAPER" "$SDDM_THEME_DIR/wallpaper.jpeg"
+    [[ -f "$HOME/.config/sddm/colors.conf" ]] && sudo cp "$HOME/.config/sddm/colors.conf" "$SDDM_THEME_DIR/"
+    # Enable the theme
+    sudo mkdir -p /etc/sddm.conf.d
+    echo -e "[Theme]\nCurrent=minimal" | sudo tee /etc/sddm.conf.d/theme.conf > /dev/null
+    echo "  SDDM theme installed and enabled"
+fi
+
 # Reload all applications
 reload-theme

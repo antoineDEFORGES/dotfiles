@@ -51,8 +51,10 @@ if command -v nvim &> /dev/null; then
     fi
 fi
 
-# Fish - reload in new terminals automatically via conf.d
-# Existing fish shells need manual: source ~/.config/fish/conf.d/colors.fish
+# Fish - reload colors in running kitty terminals
+if pgrep -x kitty > /dev/null && command -v kitty &> /dev/null; then
+    kitty @ send-text --match 'cmdline:fish' 'source ~/.config/fish/conf.d/colors.fish\n' 2>/dev/null && echo "  Fish: reloaded"
+fi
 
 # Rofi - no daemon, reloads automatically on launch
 

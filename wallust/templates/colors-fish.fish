@@ -22,6 +22,29 @@ set -g theme_color13 '{{color13 | strip}}'
 set -g theme_color14 '{{color14 | strip}}'
 set -g theme_color15 '{{color15 | strip}}'
 
+# Fish syntax highlighting
+set -g fish_color_normal '{{foreground | strip}}'
+set -g fish_color_command '{{color4 | strip}}'
+set -g fish_color_keyword '{{color5 | strip}}'
+set -g fish_color_quote '{{color2 | strip}}'
+set -g fish_color_redirection '{{color6 | strip}}'
+set -g fish_color_end '{{color5 | strip}}'
+set -g fish_color_error ff0000
+set -g fish_color_param '{{foreground | strip}}'
+set -g fish_color_comment '{{color8 | strip}}'
+set -g fish_color_selection --background='{{color8 | strip}}'
+set -g fish_color_search_match --background='{{color8 | strip}}'
+set -g fish_color_operator '{{color6 | strip}}'
+set -g fish_color_escape '{{color5 | strip}}'
+set -g fish_color_autosuggestion '{{color8 | strip}}'
+set -g fish_color_valid_path --underline
+
+# Pager colors
+set -g fish_pager_color_progress '{{color8 | strip}}'
+set -g fish_pager_color_prefix '{{color6 | strip}}'
+set -g fish_pager_color_completion '{{foreground | strip}}'
+set -g fish_pager_color_description '{{color8 | strip}}'
+
 # Semantic aliases for prompt
 set -g c_directory '{{color6 | strip}}'
 set -g c_git_branch '{{color5 | strip}}'

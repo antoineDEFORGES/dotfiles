@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=Minimal
+Description=Minimalist SDDM theme with wallust color integration
+Author=Antoine
+Version=1.0
+Website=
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+Type=sddm-theme

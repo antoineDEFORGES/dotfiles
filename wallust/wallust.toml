@@ -42,3 +42,8 @@ fish.new_engine = true
 nvim.template = "colors-nvim.lua"
 nvim.target = "~/.config/nvim/colors.lua"
 nvim.new_engine = true
+
+# SDDM theme colors
+sddm.template = "colors-sddm.conf"
+sddm.target = "~/.config/sddm/colors.conf"
+sddm.new_engine = true

@@ -123,6 +123,8 @@ link "$DOTFILES_DIR/scripts/reload-theme.sh" "$HOME/.local/bin/reload-theme"
 chmod +x "$HOME/.local/bin/apply-theme"
 chmod +x "$HOME/.local/bin/reload-theme"
 
+# SDDM theme is installed/updated by apply-theme (requires sudo)
+
 echo ""
 echo -e "${GREEN}Done!${NC} Configs linked to ~/.config"
 
