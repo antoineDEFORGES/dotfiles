@@ -1,0 +1,35 @@
+# Wallust Configuration
+# Extracts colors from wallpapers and generates theme files
+
+[wallust]
+# Color extraction algorithm: kmeans (accurate) or fast (quick)
+backend = "kmeans"
+
+# Color palette: dark16, light16, darkcomp16, lightcomp16
+palette = "dark16"
+
+# Ensure sufficient contrast between colors
+check_contrast = true
+
+# Alpha value for transparent colors (0-255)
+alpha = 100
+
+# Kitty terminal colors
+[[entry]]
+template = "templates/colors-kitty.conf"
+target = "~/.config/kitty/colors.conf"
+
+# Hyprland window manager colors
+[[entry]]
+template = "templates/colors-hyprland.conf"
+target = "~/.config/hypr/colors.conf"
+
+# Waybar status bar colors
+[[entry]]
+template = "templates/colors-waybar.css"
+target = "~/.config/waybar/colors.css"
+
+# Rofi launcher colors
+[[entry]]
+template = "templates/colors-rofi.rasi"
+target = "~/.config/rofi/colors.rasi"

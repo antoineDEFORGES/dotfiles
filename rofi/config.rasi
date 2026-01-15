@@ -1,0 +1,78 @@
+/* Rofi Configuration */
+
+@import "colors.rasi"
+
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    width: 600px;
+    padding: 20px;
+    border: 2px;
+    border-color: @selected;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+mainbox {
+    spacing: 10px;
+    children: [inputbar, listview];
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @background-alt;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @selected;
+    padding: 0 10px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @foreground;
+    placeholder: "Search...";
+    placeholder-color: @foreground;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+    scrollbar: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @background;
+}
+
+element-icon {
+    size: 24px;
+    padding: 0 10px 0 0;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}

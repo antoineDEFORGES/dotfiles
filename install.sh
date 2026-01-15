@@ -369,6 +369,9 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/tmux"
   mkdir -p "$HOME/.config/waybar"
   mkdir -p "$HOME/.config/wallpapers"
+  mkdir -p "$HOME/.config/rofi"
+  mkdir -p "$HOME/.config/wallust/templates"
+  mkdir -p "$HOME/.local/bin"
 
   # Helper function to create symlink
   link_file() {
@@ -424,6 +427,19 @@ link_dotfiles() {
   for f in "$DOTFILES_DIR/wallpapers/"*; do
     [[ -f "$f" ]] && link_file "$f" "$HOME/.config/wallpapers/$(basename "$f")"
   done
+
+  # Rofi
+  link_file "$DOTFILES_DIR/rofi/config.rasi" "$HOME/.config/rofi/config.rasi"
+
+  # Wallust (theme generator)
+  link_file "$DOTFILES_DIR/wallust/wallust.toml" "$HOME/.config/wallust/wallust.toml"
+  for f in "$DOTFILES_DIR/wallust/templates/"*; do
+    [[ -f "$f" ]] && link_file "$f" "$HOME/.config/wallust/templates/$(basename "$f")"
+  done
+
+  # Scripts
+  link_file "$DOTFILES_DIR/scripts/apply-theme.sh" "$HOME/.local/bin/apply-theme"
+  chmod +x "$HOME/.local/bin/apply-theme"
 
   success "Dotfiles linked"
 }

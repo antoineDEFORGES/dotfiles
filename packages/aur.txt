@@ -5,6 +5,9 @@
 # --- AUR Helper ---
 yay-bin                     # Yet Another Yogurt - AUR helper written in Go
 
+# --- Theming ---
+wallust                     # Color palette generator from wallpapers (pywal successor)
+
 # --- Browsers ---
 google-chrome               # Google's web browser with sync and dev tools
 

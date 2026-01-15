@@ -1,11 +1,14 @@
+/* Import wallust-generated colors */
+@import "colors.css";
+
 * {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(30, 30, 40, 0.9);
-    color: #ffffff;
+    background: alpha(@background, 0.9);
+    color: @foreground;
     margin-left: 12px;
 }
 
@@ -24,13 +27,13 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: #fff;
-    background: #444;
+    color: @foreground;
+    background: @color4;
 }
 
 #workspaces button:hover {
-    color: #fff;
-    background: #444;
+    color: @foreground;
+    background: @color4;
 }
 
 #clock, #memory, #battery, #network, #wireplumber {
