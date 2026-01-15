@@ -2,34 +2,43 @@
 # Extracts colors from wallpapers and generates theme files
 
 [wallust]
-# Color extraction algorithm: kmeans (accurate) or fast (quick)
 backend = "kmeans"
-
-# Color palette: dark16, light16, darkcomp16, lightcomp16
 palette = "dark16"
-
-# Ensure sufficient contrast between colors
 check_contrast = true
-
-# Alpha value for transparent colors (0-255)
 alpha = 100
 
+[templates]
 # Kitty terminal colors
-[[entry]]
-template = "templates/colors-kitty.conf"
-target = "~/.config/kitty/colors.conf"
+kitty.template = "colors-kitty.conf"
+kitty.target = "~/.config/kitty/colors.conf"
+kitty.new_engine = true
 
 # Hyprland window manager colors
-[[entry]]
-template = "templates/colors-hyprland.conf"
-target = "~/.config/hypr/colors.conf"
+hyprland.template = "colors-hyprland.conf"
+hyprland.target = "~/.config/hypr/colors.conf"
+hyprland.new_engine = true
 
 # Waybar status bar colors
-[[entry]]
-template = "templates/colors-waybar.css"
-target = "~/.config/waybar/colors.css"
+waybar.template = "colors-waybar.css"
+waybar.target = "~/.config/waybar/colors.css"
+waybar.new_engine = true
 
 # Rofi launcher colors
-[[entry]]
-template = "templates/colors-rofi.rasi"
-target = "~/.config/rofi/colors.rasi"
+rofi.template = "colors-rofi.rasi"
+rofi.target = "~/.config/rofi/colors.rasi"
+rofi.new_engine = true
+
+# Tmux multiplexer colors
+tmux.template = "colors-tmux.conf"
+tmux.target = "~/.config/tmux/colors.conf"
+tmux.new_engine = true
+
+# Fish shell colors
+fish.template = "colors-fish.fish"
+fish.target = "~/.config/fish/conf.d/colors.fish"
+fish.new_engine = true
+
+# Neovim colors
+nvim.template = "colors-nvim.lua"
+nvim.target = "~/.config/nvim/colors.lua"
+nvim.new_engine = true

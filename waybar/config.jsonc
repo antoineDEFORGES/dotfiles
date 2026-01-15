@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "temperature", "network", "wireplumber"],
+    "modules-right": ["cpu", "memory", "temperature", "network", "wireplumber", "custom/lock", "custom/power"],
     "hyprland/workspaces": {
         "format": "{id}{icon}",
         "format-icons": {
@@ -32,5 +32,15 @@
     },
     "temperature": {
         "format": "\uf2c9 {temperatureC}°C"
+    },
+    "custom/lock": {
+        "format": "󰌾",
+        "tooltip": "Lock",
+        "on-click": "hyprlock"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": "Power off",
+        "on-click": "systemctl poweroff"
     }
 }

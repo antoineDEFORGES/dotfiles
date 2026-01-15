@@ -45,10 +45,10 @@ SKIP_LINK=false
 # Helper Functions
 #------------------------------------------------------------------------------
 
-log() { echo -e "${BLUE}[$(date '+%H:%M:%S')]${NC} $1" | tee -a "$LOG_FILE"; }
-success() { echo -e "${GREEN}[✓]${NC} $1" | tee -a "$LOG_FILE"; }
-warning() { echo -e "${YELLOW}[!]${NC} $1" | tee -a "$LOG_FILE"; }
-error() { echo -e "${RED}[✗]${NC} $1" | tee -a "$LOG_FILE"; }
+log() { echo -e "${BLUE}[$(date '+%H:%M:%S')]${NC} $1" | tee -a "$LOG_FILE" 2>/dev/null || echo -e "${BLUE}[$(date '+%H:%M:%S')]${NC} $1"; }
+success() { echo -e "${GREEN}[✓]${NC} $1" | tee -a "$LOG_FILE" 2>/dev/null || echo -e "${GREEN}[✓]${NC} $1"; }
+warning() { echo -e "${YELLOW}[!]${NC} $1" | tee -a "$LOG_FILE" 2>/dev/null || echo -e "${YELLOW}[!]${NC} $1"; }
+error() { echo -e "${RED}[✗]${NC} $1" | tee -a "$LOG_FILE" 2>/dev/null || echo -e "${RED}[✗]${NC} $1"; }
 
 header() {
   echo -e "\n${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -66,8 +66,9 @@ confirm() {
 command_exists() { command -v "$1" &>/dev/null; }
 
 package_installed() {
-  pacman -Qi "$1" &>/dev/null 2>&1 ||
-    ($AUR_HELPER -Qi "$1" &>/dev/null 2>&1 2>/dev/null)
+  pacman -Qq "$1" &>/dev/null && return 0
+  command_exists "$AUR_HELPER" && $AUR_HELPER -Qq "$1" &>/dev/null && return 0
+  return 1
 }
 
 #------------------------------------------------------------------------------
@@ -123,7 +124,13 @@ list_package_files() {
 #------------------------------------------------------------------------------
 
 check_arch() {
-  [[ ! -f /etc/arch-release ]] && error "This script is for Arch Linux only!" && exit 1
+  log "Checking if running on Arch Linux..."
+  if [[ ! -f /etc/arch-release ]]; then
+    error "This script is for Arch Linux only!"
+    error "File /etc/arch-release not found"
+    exit 1
+  fi
+  success "Arch Linux detected"
 }
 
 check_internet() {
@@ -207,41 +214,60 @@ install_from_file() {
   header "Installing: $name"
 
   local packages=($(read_package_file "$file"))
+  local total=${#packages[@]}
 
-  if [[ ${#packages[@]} -eq 0 ]]; then
+  if [[ $total -eq 0 ]]; then
     warning "No packages in $file"
     return 0
   fi
 
-  log "Found ${#packages[@]} packages"
+  log "Checking $total packages..."
 
   # Filter already installed
   local to_install=()
+  local installed_count=0
+  local i=0
+
   for pkg in "${packages[@]}"; do
-    if ! package_installed "$pkg"; then
-      to_install+=("$pkg")
+    i=$((i + 1))
+    printf "\r  [%d/%d] Checking: %-30s" "$i" "$total" "$pkg"
+
+    if package_installed "$pkg"; then
+      installed_count=$((installed_count + 1))
     else
-      log "Already installed: $pkg"
+      to_install+=("$pkg")
     fi
   done
+  printf "\n"
+
+  log "$installed_count/$total packages already installed"
 
   if [[ ${#to_install[@]} -eq 0 ]]; then
-    success "All packages already installed"
+    success "All $total packages already installed - skipping"
     return 0
   fi
 
-  log "Installing ${#to_install[@]} new packages..."
-  echo -e "${CYAN}${to_install[*]}${NC}"
+  log "Installing ${#to_install[@]} new packages:"
+  for pkg in "${to_install[@]}"; do
+    echo -e "  ${CYAN}+ $pkg${NC}"
+  done
 
+  echo ""
   if [[ "$use_aur" = true ]]; then
-    $AUR_HELPER -S --noconfirm --needed "${to_install[@]}" ||
-      warning "Some AUR packages failed"
+    log "Using $AUR_HELPER to install..."
+    $AUR_HELPER -S --noconfirm --needed "${to_install[@]}" || {
+      warning "Some AUR packages failed to install"
+      return 1
+    }
   else
-    sudo pacman -S --noconfirm --needed "${to_install[@]}" ||
-      warning "Some packages failed"
+    log "Using pacman to install..."
+    sudo pacman -S --noconfirm --needed "${to_install[@]}" || {
+      warning "Some packages failed to install"
+      return 1
+    }
   fi
 
-  success "$name complete"
+  success "$name: ${#to_install[@]} packages installed"
 }
 
 detect_nvidia() {
@@ -496,6 +522,31 @@ EOF
   warning "Review and customize: $hypr_local"
 }
 
+setup_wallust() {
+  header "Setting Up Wallust Theme"
+
+  if ! command_exists wallust; then
+    warning "wallust not installed, skipping theme setup"
+    return 0
+  fi
+
+  local wallpaper="$HOME/.config/wallpapers/one.jpg"
+
+  if [[ ! -f "$wallpaper" ]]; then
+    warning "No wallpaper found at $wallpaper, skipping theme generation"
+    return 0
+  fi
+
+  log "Generating color theme from wallpaper..."
+
+  if wallust run "$wallpaper"; then
+    success "Color theme generated"
+    log "Theme files created in ~/.config/*/colors.*"
+  else
+    warning "Failed to generate theme"
+  fi
+}
+
 setup_environment() {
   header "Setting Up Environment"
 
@@ -632,8 +683,10 @@ main() {
     esac
   done
 
+  # Init log directory early
+  mkdir -p "$(dirname "$LOG_FILE")" 2>/dev/null || true
+
   # Banner
-  clear
   echo -e "${PURPLE}"
   cat <<'EOF'
     ╔═══════════════════════════════════════════════════════════╗
@@ -712,6 +765,9 @@ EOF
 
   # Generate machine-specific config
   generate_local_config
+
+  # Generate initial theme from wallpaper
+  setup_wallust
 
   # Done
   echo "=== Install completed: $(date) ===" >>"$LOG_FILE"

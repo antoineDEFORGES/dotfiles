@@ -1,5 +1,16 @@
 /* Rofi Configuration */
 
+/* Default colors (wallust will override via colors.rasi) */
+* {
+    background:     #1e1e2e;
+    background-alt: #45475a;
+    foreground:     #cdd6f4;
+    selected:       #89b4fa;
+    active:         #a6e3a1;
+    urgent:         #f38ba8;
+}
+
+/* Import wallust colors if available */
 @import "colors.rasi"
 
 configuration {
