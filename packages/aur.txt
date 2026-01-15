@@ -1,0 +1,31 @@
+# ============================================================================
+# AUR PACKAGES - Installed via yay/paru from Arch User Repository
+# ============================================================================
+
+# --- AUR Helper ---
+yay-bin                     # Yet Another Yogurt - AUR helper written in Go
+
+# --- Browsers ---
+google-chrome               # Google's web browser with sync and dev tools
+
+# --- Editors ---
+visual-studio-code-bin      # Microsoft's code editor with extensions ecosystem
+
+# --- Hyprland Extras ---
+awww                        # Animated wallpaper daemon with smooth transitions
+wlogout                     # Logout menu with lock, suspend, reboot, shutdown buttons
+grimblast-git               # Screenshot wrapper for Hyprland with copy/save options
+hyprpicker                  # Color picker that works on Wayland/Hyprland
+
+# --- Rofi ---
+rofi-wayland                # Application launcher and dmenu replacement for Wayland
+
+# --- Display Management ---
+nwg-displays                # GUI for configuring monitor layout on Wayland
+
+# --- Themes ---
+catppuccin-gtk-theme-mocha  # Soothing pastel dark theme for GTK apps
+papirus-icon-theme          # Modern flat icon theme with many app icons
+
+# --- Cursor ---
+bibata-cursor-theme         # Modern, rounded cursor theme with multiple variants

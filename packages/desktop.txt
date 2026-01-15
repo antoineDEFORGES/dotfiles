@@ -1,0 +1,29 @@
+# ============================================================================
+# DESKTOP PACKAGES - Use with: ./install.sh --profile desktop
+# ============================================================================
+
+# --- Gaming ---
+steam                       # Valve's game store and launcher for Linux gaming
+gamemode                    # Optimize system performance while games are running
+lib32-gamemode              # 32-bit libraries for gamemode (needed for some games)
+mangohud                    # Overlay showing FPS, CPU/GPU stats in games
+lib32-mangohud              # 32-bit mangohud for older games
+
+# --- Wine (Windows Compatibility) ---
+wine                        # Run Windows applications and games on Linux
+wine-mono                   # Wine's .NET Framework replacement
+wine-gecko                  # Wine's Internet Explorer replacement for embedded browsers
+winetricks                  # Helper script to install Windows libs in Wine prefixes
+
+# --- Virtualization ---
+qemu-full                   # Full system emulator for running virtual machines
+virt-manager                # GUI for managing QEMU/KVM virtual machines
+libvirt                     # API for managing virtualization (used by virt-manager)
+dnsmasq                     # DHCP/DNS server for virtual machine networking
+iptables-nft                # Firewall rules for VM network isolation
+
+# --- Multi-Monitor ---
+ddcutil                     # Control external monitor brightness via DDC protocol
+
+# --- Performance ---
+corectrl                    # GUI to control AMD GPU/CPU clocks and fan curves (AUR)

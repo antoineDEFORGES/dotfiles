@@ -1,0 +1,106 @@
+# ============================================================================
+# CORE PACKAGES - Always installed on every machine
+# ============================================================================
+
+# --- Base Development ---
+base-devel                  # Essential build tools (gcc, make, etc.) for compiling packages
+git                         # Version control system for tracking code changes
+gcc                         # GNU C/C++ compiler
+clang                       # Modern C/C++ compiler with better error messages
+cmake                       # Cross-platform build system generator
+make                        # Build automation tool that runs Makefiles
+curl                        # Command-line tool for transferring data via URLs
+wget                        # Download files from the web via command line
+unzip                       # Extract .zip archives
+zip                         # Create .zip archives
+ripgrep                     # Ultra-fast text search tool (better grep)
+fd                          # Simple and fast file finder (better find)
+fzf                         # Fuzzy finder for interactive filtering of lists
+jq                          # Command-line JSON processor and formatter
+tree                        # Display directory structure as a tree
+htop                        # Interactive process viewer and system monitor
+btop                        # Beautiful resource monitor with graphs (better htop)
+
+# --- Hyprland & Wayland ---
+hyprland                    # Tiling Wayland compositor with animations and eye candy
+hyprpaper                   # Fast wallpaper utility for Hyprland
+hyprlock                    # GPU-accelerated lock screen for Hyprland
+hypridle                    # Idle daemon for Hyprland (triggers lock, suspend, etc.)
+xdg-desktop-portal-hyprland # Portal for screen sharing, file dialogs in Hyprland
+sddm                        # Display manager with Qt-based greeter
+xdg-desktop-portal-gtk      # GTK portal backend for file pickers and dialogs
+qt5-wayland                 # Wayland support for Qt5 applications
+qt6-wayland                 # Wayland support for Qt6 applications
+polkit-kde-agent            # Authentication agent for privilege escalation popups
+
+# --- Terminal ---
+kitty                       # Fast, GPU-accelerated terminal emulator with images support
+zsh                         # Powerful shell with better autocompletion than bash
+starship                    # Minimal, fast, customizable prompt for any shell
+
+# --- Editor ---
+neovim                      # Modern Vim fork with Lua scripting and LSP support
+
+# --- Bar, Launcher, Notifications ---
+waybar                      # Highly customizable status bar for Wayland
+dunst                       # Lightweight notification daemon with customizable styling
+
+# --- File Manager ---
+thunar                      # Fast GTK file manager from XFCE
+gvfs                        # Virtual filesystem for trash, remote mounts, etc.
+tumbler                     # Thumbnail service for file managers
+ffmpegthumbnailer           # Video thumbnail generator for file managers
+
+# --- Audio ---
+pipewire                    # Modern audio/video server replacing PulseAudio and JACK
+pipewire-alsa               # ALSA compatibility layer for PipeWire
+pipewire-pulse              # PulseAudio compatibility layer for PipeWire
+pipewire-jack               # JACK compatibility layer for pro audio apps
+wireplumber                 # Session manager for PipeWire (handles device routing)
+pavucontrol                 # GUI for controlling PipeWire/PulseAudio volumes
+
+# --- Network ---
+networkmanager              # Network connection manager with auto-connect support
+network-manager-applet      # System tray applet for NetworkManager
+nm-connection-editor        # GUI for editing saved network connections
+
+# --- Bluetooth ---
+bluez                       # Official Linux Bluetooth protocol stack
+bluez-utils                 # Bluetooth CLI tools (bluetoothctl)
+blueman                     # GTK Bluetooth manager with system tray applet
+
+# --- Screenshots & Clipboard ---
+grim                        # Screenshot tool for Wayland compositors
+slurp                       # Region selector for Wayland (use with grim)
+swappy                      # Screenshot editor with annotations and cropping
+wl-clipboard                # Wayland clipboard utilities (wl-copy, wl-paste)
+cliphist                    # Clipboard history manager for Wayland
+hyprshot                    # Screenshot utility for Hyprland
+
+# --- Fonts ---
+ttf-jetbrains-mono-nerd     # JetBrains Mono with Nerd Font icons for terminal
+ttf-nerd-fonts-symbols      # Nerd Font symbols for icon support in terminal
+ttf-font-awesome            # Icon font used by waybar and other apps
+noto-fonts                  # Google's font family with wide Unicode coverage
+noto-fonts-emoji            # Emoji font for proper emoji rendering
+
+# --- Theme & Appearance ---
+gtk3                        # GTK3 toolkit (needed for theming GTK3 apps)
+gtk4                        # GTK4 toolkit (needed for theming GTK4 apps)
+nwg-look                    # GTK theme switcher for Wayland (like lxappearance)
+kvantum                     # SVG-based theme engine for Qt apps
+
+# --- Utils ---
+stow                        # Symlink farm manager for dotfiles management
+brightnessctl               # Control screen brightness from command line
+playerctl                   # Control media players via command line (play/pause/next)
+udiskie                     # Auto-mount removable drives with notifications
+gnome-keyring               # Secure storage for passwords and SSH keys
+seahorse                    # GUI for managing GNOME Keyring passwords and keys
+fastfetch                   # Fast system info display tool (neofetch alternative)
+man-pages                   # Linux manual pages for system documentation
+reflector                   # Pacman mirror list manager and optimizer
+zram-generator              # Systemd unit generator for zram swap devices
+
+# --- Browser ---
+firefox                     # Open-source web browser from Mozilla

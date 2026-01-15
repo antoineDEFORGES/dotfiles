@@ -1,0 +1,28 @@
+# ============================================================================
+# WORK PACKAGES - Use with: ./install.sh --profile work
+# ============================================================================
+
+# --- Communication ---
+slack-desktop               # Team messaging app for workplace communication (AUR)
+zoom                        # Video conferencing for meetings and webinars (AUR)
+teams-for-linux             # Unofficial Microsoft Teams client for Linux (AUR)
+
+# --- Office & Notes ---
+libreoffice-fresh           # Full office suite (Writer, Calc, Impress) like MS Office
+obsidian                    # Markdown-based note-taking with bidirectional linking (AUR)
+
+# --- Cloud CLI Tools ---
+aws-cli-v2                  # Amazon Web Services command-line interface (AUR)
+google-cloud-cli            # Google Cloud Platform command-line tools (AUR)
+
+# --- Containers & Kubernetes ---
+kubectl                     # CLI to control Kubernetes clusters
+helm                        # Package manager for Kubernetes applications
+k9s                         # Terminal UI to manage Kubernetes clusters interactively
+
+# --- VPN ---
+wireguard-tools             # Fast, modern VPN tools using WireGuard protocol
+openconnect                 # VPN client compatible with Cisco AnyConnect
+
+# --- Database ---
+dbeaver                     # Universal database GUI for MySQL, Postgres, SQLite, etc.

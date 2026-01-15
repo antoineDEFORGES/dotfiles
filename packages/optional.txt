@@ -1,0 +1,24 @@
+# ============================================================================
+# OPTIONAL PACKAGES - Prompted during installation
+# ============================================================================
+
+# --- Development Tools ---
+lazygit                     # Terminal UI for git with easy staging and committing
+docker                      # Container runtime for running isolated applications
+docker-compose              # Define and run multi-container Docker applications
+nodejs                      # JavaScript runtime for running JS outside browser
+npm                         # Node.js package manager for installing JS libraries
+python                      # Python programming language interpreter
+python-pip                  # Python package installer for external libraries
+go                          # Google's compiled language for fast CLI tools
+rust                        # Memory-safe systems programming language
+vivid                       # LS_COLORS generator for colorful ls output
+
+# --- Media ---
+obs-studio                  # Screen recording and live streaming software
+gimp                        # Powerful image editor similar to Photoshop
+vlc                         # Media player that plays almost any video/audio format
+mpv                         # Lightweight, scriptable media player for videos
+
+# --- Communication ---
+discord                     # Voice, video, and text chat for gaming communities

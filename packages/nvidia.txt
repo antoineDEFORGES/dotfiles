@@ -1,0 +1,9 @@
+# ============================================================================
+# NVIDIA PACKAGES - Only installed with --nvidia flag
+# ============================================================================
+
+nvidia-open                 # Open-source NVIDIA kernel modules for newer GPUs
+nvidia-utils                # NVIDIA utilities including nvidia-smi monitoring tool
+nvidia-settings             # GUI for configuring NVIDIA driver settings
+libva-nvidia-driver         # VA-API driver for hardware video acceleration on NVIDIA
+egl-wayland                 # EGL backend for running Wayland on NVIDIA GPUs

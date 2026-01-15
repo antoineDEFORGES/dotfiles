@@ -1,0 +1,21 @@
+# ============================================================================
+# LAPTOP PACKAGES - Use with: ./install.sh --profile laptop
+# ============================================================================
+
+# --- Power Management ---
+tlp                         # Automatic laptop power optimization (battery vs AC)
+tlp-rdw                     # TLP addon to enable/disable WiFi, Bluetooth on events
+powertop                    # Intel tool to analyze and optimize power consumption
+acpi                        # CLI tool to show battery status and thermal info
+
+# --- Backlight ---
+light                       # Simple backlight control (alternative to brightnessctl)
+
+# --- Touchpad ---
+libinput                    # Input driver with gestures and palm rejection support
+
+# --- WiFi Tools ---
+iwd                         # Intel WiFi daemon (faster, lighter than wpa_supplicant)
+
+# --- CPU Scaling ---
+auto-cpufreq                # Automatic CPU speed optimizer based on load and power (AUR)
