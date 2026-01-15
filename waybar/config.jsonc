@@ -1,0 +1,36 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "temperature", "network", "wireplumber"],
+    "hyprland/workspaces": {
+        "format": "{id}{icon}",
+        "format-icons": {
+            "active": "\uf444",
+            "default": "\uf4c3"
+        }
+    },
+    "cpu": {
+        "format": "\uf4bc {usage}%"
+    },
+    "memory": {
+        "format": "\uefc5 {percentage}%"
+    },
+    "network": {
+        "format-wifi": "\udb81\udda9 {essid}",
+        "format-ethernet": "\udb80\ude00 {ipaddr}",
+        "format-disconnected": "\udb83\udc9b Offline"
+    },
+    "wireplumber": {
+        "format": "\ue638 {volume}%",
+        "format-muted": "",
+        "on-click": "pavucontrol"
+    },
+    "clock": {
+        "format": " {:%d - %H:%M}"
+    },
+    "temperature": {
+        "format": "\uf2c9 {temperatureC}°C"
+    }
+}

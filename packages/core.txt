@@ -91,7 +91,7 @@ nwg-look                    # GTK theme switcher for Wayland (like lxappearance)
 kvantum                     # SVG-based theme engine for Qt apps
 
 # --- Utils ---
-stow                        # Symlink farm manager for dotfiles management
+zoxide                      # Smarter cd command that learns your habits
 brightnessctl               # Control screen brightness from command line
 playerctl                   # Control media players via command line (play/pause/next)
 udiskie                     # Auto-mount removable drives with notifications

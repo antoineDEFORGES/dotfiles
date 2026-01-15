@@ -1,0 +1,10 @@
+# Machine-specific Hyprland config
+# Copy to ~/.config/hypr/local.conf and customize
+
+# Monitor (find name with: hyprctl monitors)
+monitor = DP-1, preferred, auto, 1
+
+# NVIDIA (uncomment if needed)
+# env = LIBVA_DRIVER_NAME,nvidia
+# env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+# env = NVD_BACKEND,direct

@@ -1,0 +1,25 @@
+# Machine-specific configs (not tracked)
+**/local.conf
+**/local.jsonc
+**/local.css
+
+# Fish variables (auto-generated, machine-specific)
+fish/.config/fish/fish_variables
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
